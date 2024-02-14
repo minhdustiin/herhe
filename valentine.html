@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kami ♥</title>
+<style>
+  body {
+    margin: 0;
+    overflow: hidden;
+    background-color: #ffd4d4;
+  }
+
+  .heart-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+
+  .heart {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-image: url('heart.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    animation: fall 5s linear infinite;
+  }
+
+  .Kcontainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+
+  .K {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-image: url('K.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    animation: fall 6s linear infinite;
+  }
+
+  @keyframes fall {
+    0% {
+      transform: translateY(-100vh) rotate(0deg);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(100vh) rotate(360deg);
+      opacity: 1;
+    }
+  }
+
+  .card-container {
+    position: relative;
+    z-index: 1;
+    margin: 100px auto 0;
+    width: 960px;
+    height: 540px;
+    perspective: 2000px;
+  }
+
+  .card {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+  }
+
+  .card.flipped {
+    transform: rotateY(180deg);
+  }
+
+  .card-front,
+  .card-back {
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    color: white;
+    border-radius: 30px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  }
+
+  .card-front {
+    background-color: #ff00ddb9;
+    margin-top: 100px;
+  }
+
+  .card-back {
+    background-color: #ea00ff;
+    transform: translateY(-90%) rotateY(180deg);
+    padding: 20px;
+    text-align: center;
+    line-height: 1.5;
+    overflow: hidden;
+    position: relative;
+  }
+</style>
+</head>
+<body>
+
+<div class="heart-container"></div>
+
+<div class="Kcontainer"></div>
+
+<div class="card-container">
+  <div class="card">
+    <div class="card-front">
+      Happy Valentine's Day Kami!
+    </div>
+    <div class="card-back">
+      Hai, kami! I haven't made one of these in so long so I might be a little rusty, but if you're seeing this, haha, you chose Yes! From that little website I programmed for Valentine's Day. Well, I just wanted to say that I'm thankful every day for having the opportunity to be friends with you again, and actually having someone to talk to at any time of the day just feels amazing. Thank you for putting in the time to actually call me and spend time with me, even if you think I don't think it's enough, it is 100% enough or even more source: trust me, bro. I'm also thankful for that phone call you made that day; it actually changed me, and I hope it did for you too.Thank you for being my valentine!!! Hopefully yk Haha Okayyy baiiii... look at these flying hearts and k's so cute anywayss miss you! bai! <br><br> - Booey
+    </div>
+  </div>
+</div>
+
+<script>
+  const heartContainer = document.querySelector('.heart-container');
+  for (let i = 0; i < 200; i++) {
+    const heart = document.createElement('div');
+    heart.classList.add('heart');
+    heart.style.top = `${Math.random() * 1000}vh`;
+    heart.style.left = `${Math.random() * 100}vw`;
+    heart.style.animationDelay = `${Math.random()}s`;
+    heartContainer.appendChild(heart);
+  }
+
+  const Kcontainer = document.querySelector('.Kcontainer');
+  for (let i = 0; i < 200; i++) {
+    const K = document.createElement('div');
+    K.classList.add('K');
+    K.style.top = `${Math.random() * 1000}vh`;
+    K.style.left = `${Math.random() * 100}vw`;
+    K.style.animationDelay = `${Math.random()}s`;
+    Kcontainer.appendChild(K);
+  }
+
+  document.querySelector('.card-container').addEventListener('click', function() {
+    document.querySelector('.card').classList.toggle('flipped');
+  });
+</script>
+
+</body>
+</html>
